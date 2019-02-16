@@ -16,8 +16,10 @@ export class ArtistsService {
   artistsRef: AngularFireList<Artist>;
   spacesRef: AngularFireList<Space>;
   artistDetailsRef: AngularFireList<ArtistDetails>;
+  fullArtistDetailsRef: AngularFireList<ArtistDetails>;
   artistsSubject: BehaviorSubject<Artist[]>;
   spacesSubject: BehaviorSubject<Space[]>;
+  artDetSubject: BehaviorSubject<ArtistDetails[]>;
 
   // artists: Artist[];
   // spaces: Space[];
@@ -25,12 +27,10 @@ export class ArtistsService {
   constructor(private db: AngularFireDatabase) {
     this.artistsRef = db.list<Artist>("participants");
     this.spacesRef = db.list<Space>("spaces");
+    this.fullArtistDetailsRef = db.list("/participantDetails");
     this.artistsSubject = new BehaviorSubject<Artist[]>(null);
     this.spacesSubject = new BehaviorSubject<Space[]>(null);
-  }
-
-  getArtistsInit() {
-    return this.artistsRef.valueChanges();
+    this.artDetSubject = new BehaviorSubject<ArtistDetails[]>(null);
   }
 
   getArtistDetails(uid: string) {
@@ -40,12 +40,22 @@ export class ArtistsService {
     return this.artistDetailsRef.valueChanges();
   }
 
+  getArtistsInit() {
+    return this.artistsRef.valueChanges();
+  }
+  getAllDetailedArtists() {
+    return this.fullArtistDetailsRef.valueChanges();
+  }
   getSpacesInit() {
     return this.spacesRef.valueChanges();
   }
 
   setArtists(artists: Artist[]) {
     this.artistsSubject.next(artists);
+  }
+
+  setArtDetails(artdetails: ArtistDetails[]) {
+    this.artDetSubject.next(artdetails);
   }
 
   setSpaces(spaces: Space[]) {
@@ -58,5 +68,9 @@ export class ArtistsService {
 
   getSpaces() {
     return this.spacesSubject.asObservable();
+  }
+
+  getArtDets() {
+    return this.artDetSubject.asObservable();
   }
 }

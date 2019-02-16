@@ -13,6 +13,7 @@ export class MapComponent implements OnInit {
   artists: Array<Artist>;
   artist: ArtistDetails;
   spaces: Array<Space>;
+  details: Array<ArtistDetails>;
   constructor(private artistsService: ArtistsService) {
     this.artist = new ArtistDetails();
     artistsService.getArtists().subscribe(art => {
@@ -23,14 +24,19 @@ export class MapComponent implements OnInit {
       console.log(spc);
       this.spaces = spc;
     });
+    artistsService.getArtDets().subscribe(dets => {
+      console.log(dets);
+      this.details = dets;
+    });
   }
 
   ngOnInit() {}
 
   getDetails(uid: string) {
-    this.artistsService.getArtistDetails(uid).subscribe(det => {
-      console.log(det[0]);
-      this.artist = det[0];
+    let found = this.details.find((art: ArtistDetails) => {
+      return art.uuid === uid;
     });
+    console.log(found);
+    this.artist = found;
   }
 }

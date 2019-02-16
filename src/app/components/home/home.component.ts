@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit {
     artistsService.getSpacesInit().subscribe(spaces => {
       artistsService.setSpaces(spaces);
     });
+    artistsService.getAllDetailedArtists().subscribe(dets => {
+      console.log("fb called");
+      artistsService.setArtDetails(dets);
+    });
   }
 
   ngOnInit() {}
