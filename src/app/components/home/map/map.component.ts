@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ArtistsService } from "src/app/services/artists.service";
 import { Artist } from "src/app/objects/artist";
-import { ArtistDetails } from 'src/app/objects/artist-details';
+import { ArtistDetails } from "src/app/objects/artist-details";
 
 @Component({
   selector: "waa-map",
@@ -23,7 +23,6 @@ export class MapComponent implements OnInit {
 
   getDetails(uid: string) {
     this.artistsService.getArtistDetails(uid).subscribe(det => {
-      console.log(det[0]);
       this.artist = det[0];
     });
   }
