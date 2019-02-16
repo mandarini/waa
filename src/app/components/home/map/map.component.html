@@ -1,3 +1,11 @@
 <p>
   map works!
 </p>
+<ul>
+  <li *ngFor="let art of artists" (click)="getDetails(art.uuid)">
+    {{ art.name_en }} {{ art.surname_en }} {{ art.uuid }}
+  </li>
+</ul>
+<div>
+  {{artist.name_en}}
+</div>
