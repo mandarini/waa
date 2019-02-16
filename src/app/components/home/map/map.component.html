@@ -1,6 +1,4 @@
-<p>
-  map works!
-</p>
+<div #mapElement class="map"></div>
 <ul>
   <li *ngFor="let art of artists" (click)="getDetails(art.uuid, art.space)">
     {{ art.name_en }} {{ art.surname_en }}
