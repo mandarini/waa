@@ -2,3 +2,29 @@
     width: 500px;
     height: 500px;
 }
+
+.wrapper {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-areas:
+      "analysis"
+      "user"
+      "history";
+  }
+
+  .user-settings {
+    grid-area: user;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  @media (min-width: 700px) {
+    .wrapper {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "analysis   history history"
+        "user       history history";
+    }
+  }
+  

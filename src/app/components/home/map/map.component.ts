@@ -11,7 +11,6 @@ import { Artist } from "src/app/objects/artist";
 import { ArtistDetails } from "src/app/objects/artist-details";
 import { Space } from "src/app/objects/space";
 import { ScriptLoadService } from "src/app/services/script-load.service";
-import { InfoMap } from "src/app/objects/info-map";
 
 const your_API_key = "AIzaSyBV4CbNglZMZTc9Qnh2iTTZvL8c0eVtHw0";
 const url = `https://maps.googleapis.com/maps/api/js?key=${your_API_key}&libraries=geometry`;
