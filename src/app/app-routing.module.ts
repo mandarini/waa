@@ -18,7 +18,7 @@ const routes: Routes = [
       {
         path: "",
         redirectTo: "map",
-        component: MapComponent
+        pathMatch: "full"
       },
       {
         path: "map",
@@ -34,8 +34,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: "", redirectTo: "welcome", pathMatch: "full" },
-  { path: "**", redirectTo: "welcome" }
+  { path: "", redirectTo: "/welcome", pathMatch: "full" }
 ];
 
 @NgModule({
