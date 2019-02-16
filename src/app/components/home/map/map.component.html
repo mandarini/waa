@@ -2,7 +2,7 @@
   map works!
 </p>
 <ul>
-  <li *ngFor="let art of artists" (click)="getDetails(art.uuid)">
+  <li *ngFor="let art of artists" (click)="getDetails(art.uuid, art.space)">
     {{ art.name_en }} {{ art.surname_en }}
   </li>
 </ul>

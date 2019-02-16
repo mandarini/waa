@@ -21,9 +21,6 @@ export class ArtistsService {
   spacesSubject: BehaviorSubject<Space[]>;
   artDetSubject: BehaviorSubject<ArtistDetails[]>;
 
-  // artists: Artist[];
-  // spaces: Space[];
-
   constructor(private db: AngularFireDatabase) {
     this.artistsRef = db.list<Artist>("participants");
     this.spacesRef = db.list<Space>("spaces");

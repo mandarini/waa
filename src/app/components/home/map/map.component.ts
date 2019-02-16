@@ -12,8 +12,10 @@ import { Space } from "src/app/objects/space";
 export class MapComponent implements OnInit {
   artists: Array<Artist>;
   artist: ArtistDetails;
+  space: Space;
   spaces: Array<Space>;
   details: Array<ArtistDetails>;
+
   constructor(private artistsService: ArtistsService) {
     this.artist = new ArtistDetails();
     artistsService.getArtists().subscribe(art => {
@@ -32,11 +34,13 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {}
 
-  getDetails(uid: string) {
-    let found = this.details.find((art: ArtistDetails) => {
+  getDetails(uid: string, s_uid: string) {
+    this.artist = this.details.find((art: ArtistDetails) => {
       return art.uuid === uid;
     });
-    console.log(found);
-    this.artist = found;
+    this.space = this.spaces.find((space: Space) => {
+      return space.suid === s_uid;
+    });
+    console.log(this.artist, this.space);
   }
 }
