@@ -21,6 +21,19 @@ speed-measure-plugin.json
 .settings/
 *.sublime-workspace
 
+# webstorm
+.idea/
+.idea/encodings.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/rutherford.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/dictionaries/katerina.xml
+.idea/dictionaries/katerina.xml
+.idea/workspace.xml 
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
