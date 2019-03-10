@@ -17,4 +17,15 @@
       }
     }
   }
+  .social-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+      display: block;
+      width: auto;
+      margin-right: 8px;
+    }
+  }
 }

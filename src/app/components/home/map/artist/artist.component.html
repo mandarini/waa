@@ -1,53 +1,54 @@
 <div class="artist">
   <h3>{{ artist.name_en }} {{ artist.surname_en }}</h3>
-  <div class="social-links text-center">
+  <div class="social-media">
     <a
+      mat-icon-button
+      color="primary"
       *ngIf="artist.contact && artist.contact.facebook"
       [href]="artist.contact.facebook"
-      class="social-link"
       target="_blank"
     >
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-      </span>
+      <mat-icon aria-label="Example icon-button with a heart icon"
+        >mood</mat-icon
+      >
     </a>
     <a
+      mat-icon-button
+      color="primary"
       *ngIf="artist.webpage"
       [href]="artist.webpage"
-      class="social-link"
       target="_blank"
     >
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
-      </span>
+      <mat-icon aria-label="Example icon-button with a heart icon"
+        >public</mat-icon
+      >
     </a>
     <a
+      mat-icon-button
+      color="primary"
       *ngIf="artist.contact && artist.contact.mail"
       [href]="'mailto:' + artist.contact.mail"
-      class="social-link"
       target="_blank"
     >
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-      </span>
-      {{ artist.contact.mail }}
+      <mat-icon aria-label="Example icon-button with a heart icon"
+        >mail</mat-icon
+      >
+      <span>{{ artist.contact.mail }}</span>
     </a>
     <a
+      mat-icon-button
+      color="primary"
       *ngIf="artist.contact && artist.contact.telephone"
       [href]="'tel:' + artist.contact.telephone"
-      class="social-link"
       target="_blank"
     >
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-      </span>
-      {{ artist.contact.telephone }}
+      <mat-icon aria-label="Example icon-button with a heart icon"
+        >local_phone</mat-icon
+      >
+      <span> {{ artist.contact.telephone }}</span>
     </a>
   </div>
+
   <div *ngIf="artist.images" class="images">
     <div
       role="button"
