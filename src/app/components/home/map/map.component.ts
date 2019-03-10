@@ -52,25 +52,34 @@ export class MapComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-    this.load.loadScript(url, "gmap", () => {
+    if (window["google"] && window["google"]["maps"]) {
       this.maps = window["google"]["maps"];
-      this.athens = new this.maps.LatLng(37.973695, 23.736935);
-      this.map = new this.maps.Map(this.mapElm.nativeElement, {
-        zoom: 10,
-        center: this.athens,
-        scrollwheel: true,
-        panControl: false,
-        mapTypeControl: false,
-        zoomControl: true,
-        streetViewControl: false,
-        scaleControl: true,
-        zoomControlOptions: {
-          style: this.maps.ZoomControlStyle.LARGE,
-          position: this.maps.ControlPosition.RIGHT_BOTTOM
-        }
+      this.firstLoad(this.maps);
+    } else {
+      this.load.loadScript(url, "gmap", () => {
+        this.maps = window["google"]["maps"];
+        this.firstLoad(this.maps);
       });
-      this.loadAllMarkers(this.map);
+    }
+  }
+
+  firstLoad(maps: any): void {
+    this.athens = new maps.LatLng(37.973695, 23.736935);
+    this.map = new maps.Map(this.mapElm.nativeElement, {
+      zoom: 10,
+      center: this.athens,
+      scrollwheel: true,
+      panControl: false,
+      mapTypeControl: false,
+      zoomControl: true,
+      streetViewControl: false,
+      scaleControl: true,
+      zoomControlOptions: {
+        style: this.maps.ZoomControlStyle.LARGE,
+        position: this.maps.ControlPosition.RIGHT_BOTTOM
+      }
     });
+    this.loadAllMarkers(this.map);
   }
 
   loadAllMarkers(map: google.maps.Map): void {
