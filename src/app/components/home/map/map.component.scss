@@ -1,30 +1,38 @@
-.map {
-    width: 500px;
-    height: 500px;
+.main-grid {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-areas:
+    "map"
+    "artists"
+    "spaces";
+
+  .map {
+    grid-area: map;
+    width: auto;
+    height: 70vh;
+    margin: 0 5px;
+  }
+
+  .art-list {
+    grid-area: artists;
+    height: 70vh;
+    overflow: scroll;
+  }
+
+  .space-list {
+    grid-area: spaces;
+    height: 70vh;
+    overflow: scroll;
+  }
+  button {
+    width: 100%;
+    margin: 4px 0;
+  }
 }
 
-.wrapper {
-    display: grid;
-    grid-gap: 16px;
-    grid-template-areas:
-      "analysis"
-      "user"
-      "history";
+@media (min-width: 700px) {
+  .main-grid {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "artists map spaces";
   }
-
-  .user-settings {
-    grid-area: user;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  @media (min-width: 700px) {
-    .wrapper {
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-areas:
-        "analysis   history history"
-        "user       history history";
-    }
-  }
-  
+}

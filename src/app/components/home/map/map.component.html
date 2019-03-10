@@ -1,9 +1,30 @@
-<div #mapElement class="map"></div>
-<ul>
-  <li *ngFor="let art of artists" (click)="getDetails(art.uuid, art.space)">
-    {{ art.name_en }} {{ art.surname_en }}
-  </li>
-</ul>
+<div class="main-grid">
+  <div #mapElement class="map"></div>
+  <div class="art-list">
+    <button
+      mat-raised-button
+      color="primary"
+      *ngFor="let art of artists"
+      (click)="getDetails(art.uuid, art.space)"
+      role="button"
+      tabindex="0"
+    >
+      {{ art.name_en }} {{ art.surname_en }}
+    </button>
+  </div>
+  <div class="space-list">
+    <button
+      mat-raised-button
+      color="primary"
+      *ngFor="let spc of spaces"
+      (click)="getSpace(spc)"
+      role="button"
+      tabindex="0"
+    >
+      {{ spc.address_en }}
+    </button>
+  </div>
+</div>
 <div>
   {{ artist.name_en }}
 </div>

@@ -12,7 +12,7 @@ import { ArtistDetails } from "src/app/objects/artist-details";
 import { Space } from "src/app/objects/space";
 import { ScriptLoadService } from "src/app/services/script-load.service";
 
-const your_API_key = "AIzaSyBV4CbNglZMZTc9Qnh2iTTZvL8c0eVtHw0";
+const your_API_key = "AIzaSyDp8PZ_Vb-fLogz4wcSF7ltbUFB3qw0-7A";
 const url = `https://maps.googleapis.com/maps/api/js?key=${your_API_key}&libraries=geometry`;
 
 @Component({
@@ -39,15 +39,12 @@ export class MapComponent implements OnInit, AfterViewInit {
   ) {
     this.artist = new ArtistDetails();
     artistsService.getArtists().subscribe(art => {
-      console.log(art);
       this.artists = art;
     });
     artistsService.getSpaces().subscribe(spc => {
-      console.log(spc);
       this.spaces = spc;
     });
     artistsService.getArtDets().subscribe(dets => {
-      console.log(dets);
       this.details = dets;
     });
   }
@@ -57,9 +54,9 @@ export class MapComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.load.loadScript(url, "gmap", () => {
       this.maps = window["google"]["maps"];
-      this.athens = new this.maps.LatLng(32.06485, 34.763226);
+      this.athens = new this.maps.LatLng(37.973695, 23.736935);
       this.map = new this.maps.Map(this.mapElm.nativeElement, {
-        zoom: 3,
+        zoom: 10,
         center: this.athens,
         scrollwheel: true,
         panControl: false,
@@ -78,7 +75,6 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   loadAllMarkers(map: google.maps.Map): void {
     this.artistsService.getSpaces().subscribe((spcs: Array<Space>) => {
-      console.log(spcs);
       if (spcs) {
         spcs.forEach((space: Space) => {
           let markLatLng = new this.maps.LatLng(
@@ -107,6 +103,23 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.space = this.spaces.find((space: Space) => {
       return space.suid === s_uid;
     });
+    this.map.panTo(
+      new this.maps.LatLng(
+        this.space.location.geometry.coordinates[1],
+        this.space.location.geometry.coordinates[0]
+      )
+    );
+    this.map.setZoom(15);
     console.log(this.artist, this.space);
+  }
+
+  getSpace(space: Space) {
+    this.map.panTo(
+      new this.maps.LatLng(
+        space.location.geometry.coordinates[1],
+        space.location.geometry.coordinates[0]
+      )
+    );
+    this.map.setZoom(15);
   }
 }
