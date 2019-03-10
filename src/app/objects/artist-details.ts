@@ -8,6 +8,7 @@ export class ArtistDetails {
   contact: {
     mail: string;
     telephone: string;
+    facebook: string;
   };
   images: {
     img1: string;
