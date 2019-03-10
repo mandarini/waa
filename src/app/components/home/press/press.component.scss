@@ -1,0 +1,30 @@
+.centered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .welcome-logos {
+    width: 25vw;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    div {
+      width: 45%;
+      margin: 5px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .centered {
+    .welcome-logos {
+      width: 65vw;
+    }
+  }
+}
