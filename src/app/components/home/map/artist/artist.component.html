@@ -59,16 +59,32 @@
       <img [src]="img.value" [alt]="img.key" />
     </div>
   </div>
-  <div class="bio">
-    {{ artist.bio_en }}
-  </div>
-  <div class="hours">
-    <div class="col-md-6 col-sm-12 artist-available text-center centered">
-      <div class="well">
-        <h4>Hours</h4>
-        <p><strong>Saturday 24 June:</strong> {{ available_24_en }}</p>
-        <p><strong>Sunday 25 June:</strong> {{ available_25_en }}</p>
-      </div>
+  <div class="biohours">
+    <div class="bio">
+      {{ artist.bio_en }}
+    </div>
+    <div
+      class="hours"
+      *ngIf="
+        artist.available_24 ||
+        artist.available_25 ||
+        artist.available_17 ||
+        artist.available_18
+      "
+    >
+      <p>Hours:</p>
+      <p *ngIf="artist.available_17">
+        <strong>Saturday 17 June:</strong> All Day
+      </p>
+      <p *ngIf="artist.available_18">
+        <strong>Sunday 18 June:</strong> All Day
+      </p>
+      <p *ngIf="artist.available_24">
+        <strong>Saturday 24 June:</strong> All Day
+      </p>
+      <p *ngIf="artist.available_25">
+        <strong>Sunday 25 June:</strong> All Day
+      </p>
     </div>
   </div>
 </div>

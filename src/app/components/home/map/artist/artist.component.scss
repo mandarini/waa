@@ -28,4 +28,21 @@
       margin-right: 8px;
     }
   }
+
+  .biohours {
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .bio {
+      width: 50%;
+      text-align: center;
+    }
+    .hours {
+      border: 1px grey dotted;
+      width: 30%;
+      padding: 0 16px;
+      text-align: left;
+    }
+  }
 }
