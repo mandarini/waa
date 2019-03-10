@@ -14,10 +14,22 @@
     div {
       width: 45%;
       margin: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       img {
         width: 100%;
         height: auto;
       }
     }
+  }
+  nav {
+    text-align: center;
+    a {
+    }
+  }
+  .text {
+    width: 70vw;
   }
 }
