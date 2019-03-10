@@ -119,7 +119,7 @@ export class MapComponent implements OnInit, AfterViewInit {
       )
     );
     this.map.setZoom(15);
-    console.log(this.artist, this.space);
+    console.log(this.artist);
   }
 
   getSpace(space: Space) {
