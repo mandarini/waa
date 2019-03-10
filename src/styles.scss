@@ -4,4 +4,24 @@
 html,
 body {
   font-family: sans-serif;
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(#97e2ce, 0.3);
+}
+/* the new scrollbar will have a flat appearance with the set background color */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(#67e7c5, 0.8);
+}
+/* this will style the thumb, ignoring the track */
+::-webkit-scrollbar-button {
+  background-color: rgba(#97e2ce, 0.6);
+}
+/* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+::-webkit-scrollbar-corner {
+  background-color: black;
 }

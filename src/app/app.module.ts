@@ -13,6 +13,8 @@ import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { environment } from "../environments/environment";
 import { MatButtonModule } from "@angular/material/button";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { MatButtonModule } from "@angular/material/button";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

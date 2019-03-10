@@ -1,7 +1,16 @@
-<h3>home</h3>
-<nav>
-  <a routerLink="map">map</a>
-  <a routerLink="press">press</a>
-  <a routerLink="about">about</a>
-</nav>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><img class="logo" src="../assets/img/logo_small.jpg"/></span>
+    <span class="example-spacer"></span>
+    <mat-icon role="button" tabindex="0" class="example-icon" routerLink="map"
+      >map</mat-icon
+    >
+    <mat-icon role="button" tabindex="0" class="example-icon" routerLink="press"
+      >subject</mat-icon
+    >
+    <mat-icon role="button" tabindex="0" class="example-icon" routerLink="about"
+      >info</mat-icon
+    >
+  </mat-toolbar-row>
+</mat-toolbar>
 <router-outlet></router-outlet>
