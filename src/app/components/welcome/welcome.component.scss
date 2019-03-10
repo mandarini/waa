@@ -1,15 +1,23 @@
-.welcome-logos {
-  width: 100vw;
-  margin-top: 32px;
+.content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  div {
-    width: 45%;
-    margin: 5px;
-    img {
-      width: 100%;
-      height: auto;
+  align-items: center;
+  .welcome-logos {
+    margin: 0 auto;
+    text-align: center;
+    width: 70vw;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    div {
+      width: 45%;
+      margin: 5px;
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }
